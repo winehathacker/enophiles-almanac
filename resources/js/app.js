@@ -30,5 +30,8 @@ Vue.component('variety-alias-select', require('./components/variety/AliasSelecti
  */
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    data: {
+      showNav: false
+    }
 });

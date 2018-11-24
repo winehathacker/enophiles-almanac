@@ -27,13 +27,19 @@
                     <a class="navbar-item" href="{{ url('/') }}">
                         <h1 class="title">Vinopedia</h1>
                     </a>
-                    <a class="navbar-item" href="{{ route('varieties.index') }}">{{ __('Varieties') }}</a>
-                    <a class="navbar-item" href="{{ route('home') }}">{{ __('Regions') }}</a>
+                    <!-- Responsive hamburger -->
+                    <div class="navbar-burger" @click="showNav = !showNav" :class="{ 'is-active': showNav }">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                 </div>
 
                 <!-- Right Side Of Navbar -->
-                <div class="navbar-menu">
+                <div class="navbar-menu" :class="{ 'is-active': showNav }">
                     <div class="navbar-end">
+                        <a class="navbar-item" href="{{ route('varieties.index') }}">{{ __('Varieties') }}</a>
+                        <a class="navbar-item" href="{{ route('home') }}">{{ __('Regions') }}</a>
                         @guest
                             <a class="navbar-item" href="{{ route('login') }}">{{ __('Login') }}</a>
                             <!-- TODO Remove registration in favor of invites -->
@@ -49,7 +55,6 @@
                             </form>
                         @endguest
                     </div>
-                    <!-- Authentication Links -->
                 </div>
             </div>
         </nav>
