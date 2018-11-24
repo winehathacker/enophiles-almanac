@@ -1,22 +1,24 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
+    <div class="section">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-three-fifths-desktop">
                     @auth
-                        <a href="{{ route('varieties.edit', [$variety]) }}" class="btn btn-primary">Edit</a>
+                        <div class="level">
+                            <a href="{{ route('varieties.edit', [$variety]) }}" class="button is-primary">Edit</a>
+                        </div>
                     @endauth
-                    <div class="card-header">{{ $variety->name }}</div>
-                    <div class="card-body">
-                        <h2>Aliases</h2>
-                        <ul>
-                            @foreach( $variety->aliases as $alias)
-                                <li>{{ $alias->name }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
+                    <h1 class="title has-text-centered">
+                        {{ $variety->name }}
+                    </h1>
+                    <h2 class="title">Aliases</h2>
+                    <ul>
+                        @foreach( $variety->aliases as $alias)
+                            <li>{{ $alias->name }}</li>
+                        @endforeach
+                    </ul>
                 </div>
             </div>
         </div>

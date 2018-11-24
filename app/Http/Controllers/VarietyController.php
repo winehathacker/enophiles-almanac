@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Variety;
-use App\VarietyAliasGroup;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
-use Ramsey\Uuid\Uuid;
 
 class VarietyController extends Controller
 {

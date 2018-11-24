@@ -1,25 +1,26 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Varieties</div>
-                    <div class="card-body">
-                        @auth
-                            <a href="{{ route('varieties.create') }}" class="btn btn-primary">New</a>
-                        @endauth
-                        <div class="card-columns">
-                            @foreach($varieties as $variety)
-                                <div class="card">
-                                    <div class="card-header">{{ $variety->name }}</div>
-                                </div>
-                            @endforeach
-                        </div>
-                        {{ $varieties->links() }}
-                    </div>
+    <div class="section">
+        <div class="container">
+            @auth
+                <div class="level">
+                    <a class="button is-primary" href="{{ route('varieties.create') }}">New</a>
                 </div>
+            @endauth
+            <div class="columns is-multiline">
+                @foreach($varieties as $variety)
+                    <div class="column is-one-quarter">
+                        <div class="card card-clickable">
+                            <div class="card-header has-text-centered">
+                                <div class="card-header-title is-centered">
+                                    {{ $variety->name }}
+                                </div>
+                            </div>
+                            <a class="card-link" href="{{ route('varieties.show', ['variety' => $variety]) }}"></a>
+                        </div>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>

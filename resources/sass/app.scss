@@ -5,10 +5,34 @@
 // Variables
 @import 'variables';
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import "~bulma/bulma";
 
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+a.card-link {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  text-decoration: none;
+  /* Makes sure the link doesn't get underlined */
+  z-index: 10;
+  /* raises anchor tag above everything else in div */
+  background-color: white;
+  /*workaround to make clickable in IE */
+  opacity: 0;
+  /*workaround to make clickable in IE */
+  filter: alpha(opacity=0);
+  /*workaround to make clickable in IE */
+}
+
+.card-clickable:hover {
+  background-color: rgba(193, 198, 204, 0.2);
+}
+
+.v-select.dropdown {
+  width: 100%;
+}
+
+.v-select .dropdown-toggle {
+  width: 100%;
 }

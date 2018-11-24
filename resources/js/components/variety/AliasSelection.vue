@@ -1,5 +1,4 @@
 <template>
-    <!--<slot>-->
     <div>
         <v-select :options="varieties"
                   v-model="alias"
@@ -7,7 +6,6 @@
         </v-select>
         <input type="hidden" name="alias" v-model="varietyId"/>
     </div>
-    <!--</slot>-->
 </template>
 
 <script>
