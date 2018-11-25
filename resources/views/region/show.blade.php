@@ -14,17 +14,9 @@
                         {{ $region->name }}@if( $region->country ), {{ $region->country->name }}@endif
                     </h1>
                     <h2 class="title">Outer Regions</h2>
-                    <ul>
-                        @foreach( $region->outerRegions as $outerRegion)
-                            <li>{{ $outerRegion->name }}</li>
-                        @endforeach
-                    </ul>
+                    @include('region._cards', ['regions' => $region->outerRegions])
                     <h2 class="title">Subregions</h2>
-                    <ul>
-                        @foreach( $region->subregions as $subregion)
-                            <li>{{ $subregion->name }}</li>
-                        @endforeach
-                    </ul>
+                    @include('region._cards', ['regions' => $region->subregions])
                 </div>
             </div>
         </div>

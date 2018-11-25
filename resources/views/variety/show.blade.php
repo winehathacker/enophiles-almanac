@@ -14,11 +14,7 @@
                         {{ $variety->name }}
                     </h1>
                     <h2 class="title">Aliases</h2>
-                    <ul>
-                        @foreach( $variety->aliases as $alias)
-                            <li>{{ $alias->name }}</li>
-                        @endforeach
-                    </ul>
+                    @include('variety._cards', ['varieties' => $variety->aliases])
                 </div>
             </div>
         </div>
