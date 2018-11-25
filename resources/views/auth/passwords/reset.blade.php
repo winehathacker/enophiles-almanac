@@ -13,10 +13,10 @@
                         <input type="hidden" name="token" value="{{ $token }}">
 
                         <div class="field">
-                            <label for="email" class="input">{{ __('e-mail address') }}</label>
+                            <label for="email" class="label">{{ __('E-Mail Address') }}</label>
 
                             <div class="control">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-danger' : '' }}" name="email" value="{{ $email ?? old('email') }}" required autofocus>
+                                <input id="email" type="email" class="input{{ $errors->has('email') ? ' is-danger' : '' }}" name="email" value="{{ $email ?? old('email') }}" required autofocus>
 
                                 @if ($errors->has('email'))
                                     <span class="help is-danger" role="alert">
@@ -27,10 +27,10 @@
                         </div>
 
                         <div class="field">
-                            <label for="password" class="input">{{ __('password') }}</label>
+                            <label for="password" class="label">{{ __('Password') }}</label>
 
                             <div class="control">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-danger' : '' }}" name="password" required>
+                                <input id="password" type="password" class="input{{ $errors->has('password') ? ' is-danger' : '' }}" name="password" required>
 
                                 @if ($errors->has('password'))
                                     <span class="help is-danger" role="alert">
@@ -41,10 +41,10 @@
                         </div>
 
                         <div class="field">
-                            <label for="password-confirm" class="input">{{ __('confirm password') }}</label>
+                            <label for="password-confirm" class="label">{{ __('Confirm Password') }}</label>
 
                             <div class="control">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                <input id="password-confirm" type="password" class="input" name="password_confirmation" required>
                             </div>
                         </div>
 
