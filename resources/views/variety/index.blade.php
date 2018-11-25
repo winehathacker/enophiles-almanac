@@ -3,11 +3,23 @@
 @section('content')
     <div class="section">
         <div class="container">
-            @auth
-                <div class="level">
+            <div class="level">
+                <form action="{{ route('varieties.index') }}">
+                    <div class="field has-addons">
+                        <div class="control">
+                            <input name="search" class="input" type="text" placeholder="Search" value="{{ request()->get('search') ?: null }}">
+                        </div>
+                        <div class="control">
+                            <button type="submit" class="button is-info">
+                                Search
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                @auth
                     <a class="button is-primary" href="{{ route('varieties.create') }}">New</a>
-                </div>
-            @endauth
+                @endauth
+            </div>
             @include('variety._cards', ['varieties' => $varieties])
         </div>
     </div>

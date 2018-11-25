@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
+use Laravel\Scout\Searchable;
+use Yajra\Auditable\AuditableTrait;
 
 /**
  * App\Region
@@ -29,10 +31,30 @@ use Illuminate\Support\Collection;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Region whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Region whereUpdatedBy($value)
  * @mixin \Eloquent
+ * @property string|null $searchable
+ * @property-read \App\User|null $creator
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Region[] $districts
+ * @property-read string $created_by_name
+ * @property-read string $updated_by_name
+ * @property-read \App\User|null $updater
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Region owned()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Region whereSearchable($value)
  */
 class Region extends Model
 {
+    use AuditableTrait,
+        Searchable;
+
     protected $fillable = ['name'];
+
+    protected $hidden = ['searchable'];
+
+    public function toSearchableArray()
+    {
+        return [
+            'name' => $this->name,
+        ];
+    }
 
     public function outerRegions()
     {

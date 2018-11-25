@@ -13,9 +13,20 @@ class RegionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('region.index', ['regions' => Region::simplePaginate()]);
+        if ($search = $request->get('search')) {
+            $regions = Region::search($search)->paginate();
+
+            if ($regions->isEmpty()) {
+                // Handle partial names and possible typos
+                $regions = Region::query()->where('name', 'ILIKE', '%' . $search . '%')->paginate();
+            }
+        } else {
+            $regions = Region::paginate();
+        }
+
+        return view('region.index', ['regions' => $regions]);
     }
 
     /**

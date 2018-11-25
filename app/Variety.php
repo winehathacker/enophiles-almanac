@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 use Yajra\Auditable\AuditableTrait;
 
 /**
@@ -33,12 +34,24 @@ use Yajra\Auditable\AuditableTrait;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Variety owned()
  * @property-read \App\VarietyAliasGroup|null $aliasGroup
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Variety[] $aliases
+ * @property string|null $searchable
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Variety whereSearchable($value)
  */
 class Variety extends Model
 {
-    use AuditableTrait;
+    use AuditableTrait,
+        Searchable;
 
     protected $fillable = ['name'];
+
+    protected $hidden = ['searchable'];
+
+    public function toSearchableArray()
+    {
+        return [
+            'name' => $this->name,
+        ];
+    }
 
     public function aliasGroup()
     {

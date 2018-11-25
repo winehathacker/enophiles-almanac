@@ -13,9 +13,20 @@ class VarietyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('variety.index', ['varieties' => Variety::simplePaginate()]);
+        if ($search = $request->get('search')) {
+            $varieties = Variety::search($search)->paginate();
+
+            if ($varieties->isEmpty()) {
+                // Handle partial names and possible typos
+                $varieties = Variety::query()->where('name', 'ILIKE', '%' . $search . '%')->paginate();
+            }
+        } else {
+            $varieties = Variety::paginate();
+        }
+
+        return view('variety.index', ['varieties' => $varieties]);
     }
 
     /**
