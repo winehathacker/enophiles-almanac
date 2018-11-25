@@ -25,7 +25,7 @@
             <div class="container">
                 <div class="navbar-brand">
                     <a class="navbar-item" href="{{ url('/') }}">
-                        <h1 class="title">Vinopedia</h1>
+                        <h1 class="title">Enophile's Almanac</h1>
                     </a>
                     <!-- Responsive hamburger -->
                     <div class="navbar-burger" @click="showNav = !showNav" :class="{ 'is-active': showNav }">

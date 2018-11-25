@@ -7,10 +7,10 @@
             <div class="columns is-centered is-vcentered">
                 <div class="column is-two-thirds-tablet">
                     <h1 class="title">
-                        Vinopedia
+                        Enophile's Almanac
                     </h1>
                     <h2 class="subtitle">
-                        An almanac for viticultural knowledge maintained by wine professionals
+                        An almanac of enological knowledge maintained by wine professionals
                     </h2>
                     <div class="buttons is-centered">
                         <a href="{{ route('varieties.index') }}" class="button is-black is-inverted is-outlined subtitle">Varieties</a>
