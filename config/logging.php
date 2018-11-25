@@ -91,6 +91,11 @@ return [
         'sentry' => [
             'driver' => 'sentry',
         ],
+
+        'heroku' => [
+            'driver' => 'stack',
+            'channels' => ['errorlog', 'sentry']
+        ]
     ],
 
 ];
