@@ -40,11 +40,7 @@
                     <div class="navbar-end">
                         <a class="navbar-item" href="{{ route('varieties.index') }}">{{ __('Varieties') }}</a>
                         <a class="navbar-item" href="{{ route('regions.index') }}">{{ __('Regions') }}</a>
-                        @guest
-                            <a class="navbar-item" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            <!-- TODO Remove registration in favor of invites -->
-                            <a class="navbar-item" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        @else
+                        @auth
                             <!-- TODO add a link to the profile -->
                             <a id="logout"class="navbar-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -53,7 +49,7 @@
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
                             </form>
-                        @endguest
+                        @endauth
                     </div>
                 </div>
             </div>
