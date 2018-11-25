@@ -16,4 +16,5 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Auth::routes();
 
+Route::resource('regions', class_basename(Controllers\RegionController::class));
 Route::resource('varieties', class_basename(Controllers\VarietyController::class));

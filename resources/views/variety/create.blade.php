@@ -16,8 +16,8 @@
 
                                 @if ($errors->has('name'))
                                     <span class="help is-danger">
-                                    {{ $errors->first('name') }}
-                                </span>
+                                        {{ $errors->first('name') }}
+                                    </span>
                                 @endif
                             </div>
                         </div>

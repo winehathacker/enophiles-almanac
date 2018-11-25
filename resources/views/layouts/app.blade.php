@@ -39,7 +39,7 @@
                 <div class="navbar-menu" :class="{ 'is-active': showNav }">
                     <div class="navbar-end">
                         <a class="navbar-item" href="{{ route('varieties.index') }}">{{ __('Varieties') }}</a>
-                        <a class="navbar-item" href="{{ route('home') }}">{{ __('Regions') }}</a>
+                        <a class="navbar-item" href="{{ route('regions.index') }}">{{ __('Regions') }}</a>
                         @guest
                             <a class="navbar-item" href="{{ route('login') }}">{{ __('Login') }}</a>
                             <!-- TODO Remove registration in favor of invites -->

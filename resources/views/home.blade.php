@@ -14,7 +14,7 @@
                     </h2>
                     <div class="buttons is-centered">
                         <a href="{{ route('varieties.index') }}" class="button is-black is-inverted is-outlined subtitle">Varieties</a>
-                        <a href="{{ route('home') }}" class="button is-black is-inverted is-outlined subtitle">Regions</a>
+                        <a href="{{ route('regions.index') }}" class="button is-black is-inverted is-outlined subtitle">Regions</a>
                     </div>
 
                 </div>

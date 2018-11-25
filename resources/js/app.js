@@ -19,6 +19,8 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('variety-alias-select', require('./components/variety/AliasSelection'));
+Vue.component('region-select', require('./components/region/RegionSelection'));
+Vue.component('country-select', require('./components/region/CountrySelection'));
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key)))
