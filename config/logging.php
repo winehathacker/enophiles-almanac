@@ -36,7 +36,7 @@ return [
     'channels' => [
         'stack' => [
             'driver' => 'stack',
-            'channels' => ['daily'],
+            'channels' => ['daily', 'sentry'],
         ],
 
         'single' => [
@@ -86,6 +86,10 @@ return [
         'errorlog' => [
             'driver' => 'errorlog',
             'level' => 'debug',
+        ],
+
+        'sentry' => [
+            'driver' => 'sentry',
         ],
     ],
 

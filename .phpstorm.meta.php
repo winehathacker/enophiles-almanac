@@ -5,7 +5,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2018-11-25 15:58:05.
+    * Generated on 2018-11-25 22:17:50.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -137,6 +137,7 @@ namespace PHPSTORM_META {
         'redirect' => \Illuminate\Routing\Redirector::class,
         'redis' => \Illuminate\Redis\RedisManager::class,
         'router' => \Illuminate\Routing\Router::class,
+        'sentry' => \Raven_Client::class,
         'session' => \Illuminate\Session\SessionManager::class,
         'session.store' => \Illuminate\Session\Store::class,
         'swift.mailer' => \Swift_Mailer::class,
@@ -276,6 +277,7 @@ namespace PHPSTORM_META {
         'redirect' => \Illuminate\Routing\Redirector::class,
         'redis' => \Illuminate\Redis\RedisManager::class,
         'router' => \Illuminate\Routing\Router::class,
+        'sentry' => \Raven_Client::class,
         'session' => \Illuminate\Session\SessionManager::class,
         'session.store' => \Illuminate\Session\Store::class,
         'swift.mailer' => \Swift_Mailer::class,
@@ -415,6 +417,7 @@ namespace PHPSTORM_META {
         'redirect' => \Illuminate\Routing\Redirector::class,
         'redis' => \Illuminate\Redis\RedisManager::class,
         'router' => \Illuminate\Routing\Router::class,
+        'sentry' => \Raven_Client::class,
         'session' => \Illuminate\Session\SessionManager::class,
         'session.store' => \Illuminate\Session\Store::class,
         'swift.mailer' => \Swift_Mailer::class,
@@ -554,6 +557,7 @@ namespace PHPSTORM_META {
         'redirect' => \Illuminate\Routing\Redirector::class,
         'redis' => \Illuminate\Redis\RedisManager::class,
         'router' => \Illuminate\Routing\Router::class,
+        'sentry' => \Raven_Client::class,
         'session' => \Illuminate\Session\SessionManager::class,
         'session.store' => \Illuminate\Session\Store::class,
         'swift.mailer' => \Swift_Mailer::class,
@@ -693,6 +697,7 @@ namespace PHPSTORM_META {
         'redirect' => \Illuminate\Routing\Redirector::class,
         'redis' => \Illuminate\Redis\RedisManager::class,
         'router' => \Illuminate\Routing\Router::class,
+        'sentry' => \Raven_Client::class,
         'session' => \Illuminate\Session\SessionManager::class,
         'session.store' => \Illuminate\Session\Store::class,
         'swift.mailer' => \Swift_Mailer::class,
@@ -832,6 +837,7 @@ namespace PHPSTORM_META {
         'redirect' => \Illuminate\Routing\Redirector::class,
         'redis' => \Illuminate\Redis\RedisManager::class,
         'router' => \Illuminate\Routing\Router::class,
+        'sentry' => \Raven_Client::class,
         'session' => \Illuminate\Session\SessionManager::class,
         'session.store' => \Illuminate\Session\Store::class,
         'swift.mailer' => \Swift_Mailer::class,
@@ -971,6 +977,7 @@ namespace PHPSTORM_META {
         'redirect' => \Illuminate\Routing\Redirector::class,
         'redis' => \Illuminate\Redis\RedisManager::class,
         'router' => \Illuminate\Routing\Router::class,
+        'sentry' => \Raven_Client::class,
         'session' => \Illuminate\Session\SessionManager::class,
         'session.store' => \Illuminate\Session\Store::class,
         'swift.mailer' => \Swift_Mailer::class,

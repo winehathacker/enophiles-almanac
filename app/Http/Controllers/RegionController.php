@@ -15,6 +15,7 @@ class RegionController extends Controller
      */
     public function index(Request $request)
     {
+        throw new \Exception('Test');
         if ($search = $request->get('search')) {
             $regions = Region::search($search)->paginate();
 
