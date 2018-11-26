@@ -11,19 +11,27 @@ class VarietyController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
     {
         if ($search = $request->get('search')) {
-            $varieties = Variety::search($search)->paginate();
+            $varieties = Variety::search($search)->get();
 
             if ($varieties->isEmpty()) {
                 // Handle partial names and possible typos
-                $varieties = Variety::query()->where('name', 'ILIKE', '%' . $search . '%')->paginate();
+                $varieties = Variety::query()
+                    ->where('name', 'ILIKE', '%' . $search . '%')
+                    ->limit(100)
+                    ->orderBy('name')
+                    ->get();
             }
         } else {
-            $varieties = Variety::paginate();
+            $varieties = Variety::limit(100)
+                ->orderBy('name')
+                ->get();
         }
 
         return view('variety.index', ['varieties' => $varieties]);
