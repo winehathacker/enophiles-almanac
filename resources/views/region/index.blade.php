@@ -20,6 +20,9 @@
                     <a class="button is-primary" href="{{ route('regions.create') }}">New</a>
                 @endauth
             </div>
+            @if (!request()->get('search'))
+                <h2 class="subtitle">Wine Producing Countries</h2>
+            @endif
             @include('region._cards', ['regions' => $regions])
         </div>
     </div>

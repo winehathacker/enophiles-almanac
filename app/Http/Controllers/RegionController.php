@@ -11,22 +11,28 @@ class RegionController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
     {
         if ($search = $request->get('search')) {
-            $regions = Region::search($search)->paginate();
+            $regions = Region::search($search)->get();
 
             if ($regions->isEmpty()) {
                 // Handle partial names and possible typos
-                $regions = Region::query()->where('name', 'ILIKE', '%' . $search . '%')->paginate();
+                $regions = Region::query()
+                    ->where('name', 'ILIKE', '%' . $search . '%')
+                    ->limit(100)
+                    ->orderBy('name')
+                    ->get();
             }
-        } else {
-            $regions = Region::paginate();
+
+            return view('region.index', ['regions' => $regions]);
         }
 
-        return view('region.index', ['regions' => $regions]);
+        return view('region.index', ['regions' => Region::countries()]);
     }
 
     /**
