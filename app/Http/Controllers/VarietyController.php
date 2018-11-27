@@ -67,6 +67,12 @@ class VarietyController extends Controller
 
         $variety->save();
 
+        if ($request->get('createAnother')) {
+            $request->session()->flash('created', $variety);
+
+            return Redirect::route('varieties.create', ['createAnother' => true]);
+        }
+
         return Redirect::route('varieties.show', ['variety' => $variety]);
     }
 

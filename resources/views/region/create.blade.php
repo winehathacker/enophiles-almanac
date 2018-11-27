@@ -5,6 +5,14 @@
         <div class="container">
             <div class="columns is-centered">
                 <div class="column is-three-fifths-tablet">
+                    @if( session()->get('created') )
+                        <div class="section">
+                            <div class="notification is-success">
+                                {{ __('Created') }} {{ session()->get('created')->name }}
+                            </div>
+                        </div>
+                    @endif
+
                     <form method="POST" action="{{ route('regions.store') }}">
                         @csrf
 
@@ -65,6 +73,13 @@
                                     </span>
                                 @endif
                             </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="checkbox">
+                                <input name="createAnother" type="checkbox" {{ request()->get('createAnother') ? 'checked' : '' }}>
+                                {{ __('Create another?') }}
+                            </label>
                         </div>
 
                         <div class="field">

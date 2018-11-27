@@ -69,6 +69,12 @@ class RegionController extends Controller
             $region->subregions()->attach($request->get('subregions'));
         }
 
+        if ($request->get('createAnother')) {
+            $request->session()->flash('created', $region);
+
+            return Redirect::route('regions.create', ['createAnother' => true]);
+        }
+
         return Redirect::route('regions.show', ['region' => $region->load(['outerRegions', 'subregions', 'country'])]);
     }
 
