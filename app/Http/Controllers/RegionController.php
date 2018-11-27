@@ -32,7 +32,7 @@ class RegionController extends Controller
             return view('region.index', ['regions' => $regions]);
         }
 
-        return view('region.index', ['regions' => Region::countries()]);
+        return view('region.index', ['regions' => Region::whereIsCountry(true)->get()]);
     }
 
     /**
@@ -42,7 +42,7 @@ class RegionController extends Controller
      */
     public function create()
     {
-        return view('region.create', ['regions' => Region::all(), 'countries' => Region::countries()]);
+        return view('region.create', ['regions' => Region::all(), 'countries' => Region::whereIsCountry(true)->get()]);
     }
 
     /**
@@ -100,7 +100,7 @@ class RegionController extends Controller
         return view('region.edit', [
             'region' => $region->load(['outerRegions', 'subregions', 'country']),
             'regions' => Region::all(),
-            'countries' => Region::countries()
+            'countries' => Region::whereIsCountry(true)->get(),
         ]);
     }
 

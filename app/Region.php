@@ -93,22 +93,6 @@ class Region extends Model
             ->get();
     }
 
-    public static function countries(): Collection
-    {
-        /**
-         * select c.*, count(sub.country_id) as count_states from regions c
-        left join regions sub on c.id = sub.country_id
-        group by c.id, sub.country_id
-        having count(sub.country_id) > 0;
-         */
-        return self::query()
-            ->select('regions.*')
-            ->leftJoin('regions as sub', 'sub.country_id', '=', 'regions.id')
-            ->groupBy('regions.id', 'sub.country_id')
-            ->havingRaw('count(sub.country_id) > 0')
-            ->get();
-    }
-
     /*
      * As needed, the following query patterns can be used to find all relations, regardless of depth.
 SELECT r.name, r.id, rr.parent_id FROM regions r
