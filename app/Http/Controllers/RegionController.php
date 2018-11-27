@@ -53,7 +53,7 @@ class RegionController extends Controller
      */
     public function store(Request $request)
     {
-        $region = new Region($request->all());
+        $region = new Region(array_merge($request->all(), ['is_country' => $request->has('is_country')]));
 
         if ($request->get('country')) {
             $region->country()->associate($request->get('country'));
@@ -113,7 +113,7 @@ class RegionController extends Controller
      */
     public function update(Request $request, Region $region)
     {
-        $region->fill($request->all());
+        $region->fill(array_merge($request->all(), ['is_country' => $request->has('is_country')]));
 
         if ($request->get('country')) {
             $region->country()->associate($request->get('country'));

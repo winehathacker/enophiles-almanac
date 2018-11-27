@@ -24,6 +24,13 @@
                         </div>
 
                         <div class="field">
+                            <label class="checkbox">
+                                <input name="is_country" type="checkbox" {{ old('is_country') ?? $region->is_country ? 'checked' : '' }}>
+                                {{ __('This is a country') }}
+                            </label>
+                        </div>
+
+                        <div class="field">
                             <label for="country" class="label">{{ __('Country') }}</label>
 
                             <div class="control">

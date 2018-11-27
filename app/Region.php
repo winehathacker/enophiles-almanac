@@ -39,13 +39,15 @@ use Yajra\Auditable\AuditableTrait;
  * @property-read \App\User|null $updater
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Region owned()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Region whereSearchable($value)
+ * @property bool $is_country
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Region whereIsCountry($value)
  */
 class Region extends Model
 {
     use AuditableTrait,
         Searchable;
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'is_country'];
 
     protected $hidden = ['searchable'];
 
