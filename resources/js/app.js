@@ -16,7 +16,7 @@ window.Vue = require('vue');
  */
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
-Vue.component('variety-alias-select', require('./components/variety/AliasSelection'));
+Vue.component('variety-select', require('./components/variety/VarietySelect'));
 Vue.component('region-select', require('./components/region/RegionSelection'));
 Vue.component('country-select', require('./components/region/CountrySelection'));
 

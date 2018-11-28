@@ -36,6 +36,10 @@ use Yajra\Auditable\AuditableTrait;
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Variety[] $aliases
  * @property string|null $searchable
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Variety whereSearchable($value)
+ * @property int|null $clone_source_id
+ * @property-read \App\Variety|null $cloneSource
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Variety[] $clones
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Variety whereCloneSourceId($value)
  */
 class Variety extends Model
 {
@@ -51,6 +55,16 @@ class Variety extends Model
         return [
             'name' => $this->name,
         ];
+    }
+
+    public function cloneSource()
+    {
+        return $this->belongsTo(Variety::class, 'clone_source_id');
+    }
+
+    public function clones()
+    {
+        return $this->hasMany(Variety::class, 'clone_source_id');
     }
 
     public function aliasGroup()

@@ -65,6 +65,8 @@ class VarietyController extends Controller
             $variety->aliasTo(Variety::whereId($inputAlias)->firstOrFail());
         }
 
+        $variety->cloneSource()->associate($request->get('cloneSource'));
+
         $variety->save();
 
         if ($request->get('createAnother')) {
@@ -84,7 +86,7 @@ class VarietyController extends Controller
      */
     public function show(Variety $variety)
     {
-        return view('variety.show', ['variety' => $variety]);
+        return view('variety.show', ['variety' => $variety->load(['aliases', 'cloneSource'])]);
     }
 
     /**
@@ -96,7 +98,7 @@ class VarietyController extends Controller
     public function edit(Variety $variety)
     {
         return view('variety.edit', [
-            'variety' => $variety,
+            'variety' => $variety->load(['cloneSource']),
             'varieties' => Variety::all(),
             'alias' => $variety->aliases->first(),
         ]);
@@ -118,6 +120,8 @@ class VarietyController extends Controller
         } elseif ($variety->alias_group_id) {
             $variety->removeFromAlias();
         }
+
+        $variety->cloneSource()->associate($request->get('cloneSource'));
 
         $variety->saveOrFail();
 

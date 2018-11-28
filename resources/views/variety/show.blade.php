@@ -13,6 +13,17 @@
                     <h1 class="title has-text-centered">
                         {{ $variety->name }}
                     </h1>
+
+                    <div class="section">
+                        <h2 class="subtitle">This variety is cloned from</h2>
+                        @include('variety._cards', ['varieties' => $variety->cloneSource ? [$variety->cloneSource] : []])
+                    </div>
+
+                    <div class="section">
+                        <h2 class="subtitle">This variety was cloned to create</h2>
+                        @include('variety._cards', ['varieties' => $variety->clones])
+                    </div>
+
                     <div class="section">
                         <h2 class="subtitle">This variety is also commonly known as</h2>
                         @include('variety._cards', ['varieties' => $variety->aliases])

@@ -31,11 +31,26 @@
                         </div>
 
                         <div class="field">
+                            <label for="cloneSource" class="label">{{ __('Clone Source') }}</label>
+
+                            <div class="control">
+                                <variety-select name="cloneSource" v-bind:selected="null" :varieties="{{ json_encode($varieties) }}">
+                                </variety-select>
+
+                                @if ($errors->has('cloneSource'))
+                                    <span class="help is-danger">
+                                        {{ $errors->first('cloneSource') }}
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="field">
                             <label for="alias" class="label">{{ __('Alias') }}</label>
 
                             <div class="control">
-                                <variety-alias-select v-bind:selected="null" :varieties="{{ json_encode($varieties) }}">
-                                </variety-alias-select>
+                                <variety-select name="alias" v-bind:selected="null" :varieties="{{ json_encode($varieties) }}">
+                                </variety-select>
 
                                 @if ($errors->has('alias'))
                                     <span class="help is-danger">

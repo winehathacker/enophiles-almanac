@@ -4,7 +4,7 @@
                   v-model="alias"
                   label="name">
         </v-select>
-        <input type="hidden" name="alias" v-model="varietyId"/>
+        <input type="hidden" :name="name" v-model="varietyId"/>
     </div>
 </template>
 
@@ -14,6 +14,7 @@
     props: {
       'varieties': Array,
       'selected': Object,
+      'name': String,
     },
     data() {
       return {
